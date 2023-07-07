@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BasicEditorComponent } from './basic-editor/basic-editor.component';
 import { JsonViewerComponent } from './json-viewer/json-viewer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BmxToastModule } from 'bmx-toast';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,8 @@ import { JsonViewerComponent } from './json-viewer/json-viewer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    BmxToastModule
 
   ],
   providers: [],
