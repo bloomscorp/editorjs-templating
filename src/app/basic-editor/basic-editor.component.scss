@@ -1,0 +1,23 @@
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 17px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 0px;
+  background: #8086fa;
+  color: white;
+  cursor: pointer;
+  span {
+    font-size: 38px;
+  }
+}

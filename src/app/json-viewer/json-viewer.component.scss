@@ -1,0 +1,33 @@
+.json_viewer {
+  width: 100%;
+  background: var(--code_background);
+  padding: 29px;
+  color: white;
+  overflow-x: auto;
+  height: 100%;
+  color: #8086fa;
+  margin-top: 0px;
+  margin: 0;
+}
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 94px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  border: 0px;
+  background: #8086fa;
+  color: white;
+  cursor: pointer;
+  span {
+    font-size: 38px;
+  }
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 48
+}

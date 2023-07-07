@@ -1,0 +1,46 @@
+.editor_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.editor_container h1 {
+  width: calc(30% - 25px);
+  font-size: 30px;
+  font-weight: 800;
+  text-align: right;
+}
+p{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.editor_container_inner {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.editor_cont {
+  width: 82%;
+  background: var(--white_background);
+  padding: 20px;
+  min-height: calc( 100vh - 100px);
+  padding-left: 65px;
+}
+
+.json_cont {
+  width: 60%;
+  background: var(--code_background);
+  overflow-x: auto;
+}
+
+.header_cont {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+}
