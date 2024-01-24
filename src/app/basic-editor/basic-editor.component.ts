@@ -7,7 +7,6 @@ import Header from '@editorjs/header';
 
 //@ts-ignore
 import Table from '@editorjs/table';
-import { BmxToastService } from 'bmx-toast';
 
 
 @Component({
@@ -16,9 +15,7 @@ import { BmxToastService } from 'bmx-toast';
   styleUrls: ['./basic-editor.component.scss']
 })
 export class BasicEditorComponent implements OnInit, AfterViewInit {
-  constructor(
-    public _toastService: BmxToastService
-  ) { }
+  constructor() { }
   @Output() generatedJsonDataFromEditor = new EventEmitter<OutputData>();
   @ViewChild('editor', { read: ElementRef, static: true })
   private editorElement: ElementRef = {} as ElementRef;
@@ -37,7 +34,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
       holder: this.editorElement.nativeElement,
       tools: {
         // header: Header,
-        paragraph: {
+        paragraph:{
           config: {
             placeholder: 'Tell your story..'
           }
@@ -50,37 +47,15 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
             placeholder: 'Title of your story'
           }
         },
-        table: Table as unknown as ToolConstructable
+        table: Table as unknown as ToolConstructable,
       },
     });
   }
 
   public save(): void {
     this.editor.save().then((data: OutputData) => {
-      // debugger
-      console.log(data);
-      this.generatedJsonDataFromEditor.emit(data);
-      if (data['blocks'].length > 0) {
-        this._toastService.generate({
-          type: 'success',
-          toastHeading: 'JSON generated successfully',
-          toastText: 'JSON is generated, Now you can copy it anytime.',
-          position: 'bottom-center',
-          autoClose: true,
-          progressbar: true
-        });
-      }
-      else {
-        this._toastService.generate({
-          type: 'warning',
-          toastHeading: 'JSON not generated',
-          toastText: 'Please Provide Data in the Editor to Generate JSON.',
-          position: 'bottom-center',
-          autoClose: true,
-          progressbar: true
-        });
-      }
+      // console.log(data);
+      this.generatedJsonDataFromEditor.emit(data)
     });
-
   }
 }
