@@ -7,6 +7,8 @@ import Header from '@editorjs/header';
 import NestedList from '@editorjs/nested-list';
 //@ts-ignore
 import Table from '@editorjs/table';
+//@ts-ignore
+import ImageTool from '@editorjs/image';
 
 
 @Component({
@@ -59,6 +61,15 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
             defaultStyle: 'unordered'
           },
         },
+        image: {
+          class: ImageTool,
+          config: {
+            endpoints: {
+              byFile: 'http://localhost:4200/uploadFile', // Your backend file uploader endpoint
+              byUrl: 'http://localhost:4200/fetchUrl', // Your endpoint that provides uploading by Url
+            }
+          }
+        }
       },
     });
   }
