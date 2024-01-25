@@ -71,7 +71,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
           class: NestedList as unknown as ToolConstructable,
           inlineToolbar: true,
           config: {
-            defaultStyle: 'unordered'
+            defaultStyle: 'ordered'
           },
         },
         image: {
