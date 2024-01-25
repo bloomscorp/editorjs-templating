@@ -1,10 +1,10 @@
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import EditorJS, {OutputData, ToolConstructable} from '@editorjs/editorjs';
 
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
-import EditorJS, { OutputData, ToolConstructable } from '@editorjs/editorjs';
-// import Table, { TableToolConfig } from '@editorjs/table';
-//* //@ts-ignore  *//
 import Header from '@editorjs/header';
 
+//@ts-ignore
+import NestedList from '@editorjs/nested-list';
 //@ts-ignore
 import Table from '@editorjs/table';
 
@@ -15,26 +15,30 @@ import Table from '@editorjs/table';
   styleUrls: ['./basic-editor.component.scss']
 })
 export class BasicEditorComponent implements OnInit, AfterViewInit {
-  constructor() { }
-  @Output() generatedJsonDataFromEditor = new EventEmitter<OutputData>();
-  @ViewChild('editor', { read: ElementRef, static: true })
-  private editorElement: ElementRef = {} as ElementRef;
 
+  @Output() generatedJsonDataFromEditor: EventEmitter<OutputData> = new EventEmitter<OutputData>();
+  @ViewChild('editor', {read: ElementRef, static: true})
+  private editorElement: ElementRef = {} as ElementRef;
   private editor: EditorJS = {} as EditorJS;
 
-  public ngOnInit(): void { }
-
-  public ngAfterViewInit(): void {
-    this.initiEditor()
+  constructor() {
   }
 
-  public initiEditor(): void {
+  public ngOnInit(): void {
+  }
+
+  public ngAfterViewInit(): void {
+    this.initEditor();
+  }
+
+  public initEditor(): void {
+
     this.editor = new EditorJS({
       minHeight: (window.innerHeight),
       holder: this.editorElement.nativeElement,
       tools: {
-        // header: Header,
-        paragraph:{
+
+        paragraph: {
           config: {
             placeholder: 'Tell your story..'
           }
@@ -48,13 +52,20 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
           }
         },
         table: Table as unknown as ToolConstructable,
+        list: {
+          class: NestedList as unknown as ToolConstructable,
+          inlineToolbar: true,
+          config: {
+            defaultStyle: 'unordered'
+          },
+        },
       },
     });
   }
 
   public save(): void {
+
     this.editor.save().then((data: OutputData) => {
-      // console.log(data);
       this.generatedJsonDataFromEditor.emit(data)
     });
   }
