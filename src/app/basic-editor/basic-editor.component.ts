@@ -9,6 +9,8 @@ import NestedList from '@editorjs/nested-list';
 import Table from '@editorjs/table';
 //@ts-ignore
 import ImageTool from '@editorjs/image';
+//@ts-ignore
+import Checklist from '@editorjs/checklist'
 
 @Component({
   selector: 'app-basic-editor',
@@ -56,6 +58,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
             placeholder: 'Title of your story'
           }
         },
+
         anyTuneName: {
           class:AlignmentTuneTool,
           config:{
@@ -66,7 +69,9 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
             }
           },
         },
+
         table: Table as unknown as ToolConstructable,
+
         list: {
           class: NestedList as unknown as ToolConstructable,
           inlineToolbar: true,
@@ -74,6 +79,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
             defaultStyle: 'ordered'
           },
         },
+
         image: {
           class: ImageTool,
           config: {
@@ -82,7 +88,13 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
               byUrl: 'http://localhost:4200/fetchUrl', // Your endpoint that provides uploading by Url
             }
           }
-        }
+        },
+
+        checklist: {
+          class: Checklist,
+          inlineToolbar: true,
+        },
+
       },
     });
   }
