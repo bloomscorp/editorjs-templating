@@ -10,7 +10,6 @@ import Table from '@editorjs/table';
 //@ts-ignore
 import ImageTool from '@editorjs/image';
 
-
 @Component({
   selector: 'app-basic-editor',
   templateUrl: './basic-editor.component.html',
@@ -34,6 +33,8 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
   }
 
   public initEditor(): void {
+    //@ts-ignore
+    const AlignmentTuneTool = require('editorjs-text-alignment-blocktune');
 
     this.editor = new EditorJS({
       minHeight: (window.innerHeight),
@@ -41,6 +42,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
       tools: {
 
         paragraph: {
+          tunes: ['anyTuneName'],
           config: {
             placeholder: 'Tell your story..'
           }
@@ -49,9 +51,20 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
         header: {
           class: Header as unknown as ToolConstructable,
           inlineToolbar: ['bold', 'italic'],
+          tunes: ['anyTuneName'],
           config: {
             placeholder: 'Title of your story'
           }
+        },
+        anyTuneName: {
+          class:AlignmentTuneTool,
+          config:{
+            default: "left",
+            blocks: {
+              header: 'center',
+              list: 'right'
+            }
+          },
         },
         table: Table as unknown as ToolConstructable,
         list: {

@@ -24,6 +24,7 @@
     "@types/editorjs__header": "^2.6.0",
     "codex-notifier": "^1.1.2",
     "codex-tooltip": "^1.0.5",
+    "editorjs-text-alignment-blocktune": "^1.0.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
