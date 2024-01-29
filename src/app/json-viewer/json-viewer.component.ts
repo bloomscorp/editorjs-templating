@@ -25,9 +25,9 @@ export class JsonViewerComponent implements OnChanges, OnInit {
   public ngOnChanges(changes: SimpleChanges): void {
 
     if (
-        this.dataPassFromHolder.blocks &&
-        this.dataPassFromHolder.blocks.length > 0
-      ) {
+      this.dataPassFromHolder.blocks &&
+      this.dataPassFromHolder.blocks.length > 0
+    ) {
 
       this.dataPassFromHolder = changes['dataPassFromHolder'].currentValue;
       this.dataStringify = JSON.stringify(this.dataPassFromHolder, undefined, 2);

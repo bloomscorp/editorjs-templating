@@ -11,6 +11,8 @@ import Table from '@editorjs/table';
 import ImageTool from '@editorjs/image';
 //@ts-ignore
 import Checklist from '@editorjs/checklist'
+//@ts-ignore
+import CodeTool from '@editorjs/code'
 
 @Component({
   selector: 'app-basic-editor',
@@ -95,6 +97,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
           inlineToolbar: true,
         },
 
+        code: CodeTool,
       },
     });
   }
