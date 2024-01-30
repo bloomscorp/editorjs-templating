@@ -20,8 +20,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all .5s;
   span {
     font-size: 38px;
   }
+}
+
+
+button:hover {
+  background: #444676;
+  transition: all .5s;
 }
 
