@@ -12,7 +12,7 @@ import ImageTool from '@editorjs/image';
 //@ts-ignore
 import Checklist from '@editorjs/checklist'
 //@ts-ignore
-import CodeTool from '@editorjs/code'
+import CodeTool from '@editorjs/code';
 
 @Component({
   selector: 'app-basic-editor',
@@ -25,6 +25,7 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
   @ViewChild('editor', {read: ElementRef, static: true})
   private editorElement: ElementRef = {} as ElementRef;
   private editor: EditorJS = {} as EditorJS;
+  public isGenerateButtonVisible: boolean = false;
 
   constructor() {
   }
@@ -99,13 +100,27 @@ export class BasicEditorComponent implements OnInit, AfterViewInit {
 
         code: CodeTool,
       },
+      onChange: (): void => {
+
+          this.editor.save().then((data: OutputData): void => {
+
+            if(data.blocks && data.blocks.length > 0) {
+              this.isGenerateButtonVisible = true;
+            }
+            else {
+              this.generatedJsonDataFromEditor.emit({} as OutputData);
+              this.isGenerateButtonVisible = false;
+            }
+
+          });
+      }
     });
   }
 
   public save(): void {
 
-    this.editor.save().then((data: OutputData) => {
-      this.generatedJsonDataFromEditor.emit(data)
+    this.editor.save().then((data: OutputData): void => {
+      this.generatedJsonDataFromEditor.emit(data);
     });
   }
 }

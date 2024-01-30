@@ -5,10 +5,18 @@
   --white_background: #fff;
   --code_background: #000;
 }
+
 body * {
   box-sizing: border-box;
 }
+
 body {
   background-color: var(--background);
   font-family: 'Comfortaa', cursive;
+}
+
+@media only screen and (max-width: 999px) and (min-width: 300px) {
+  .codex-editor__redactor {
+    padding-bottom: 0px!important;
+  }
 }

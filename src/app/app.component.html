@@ -1,20 +1,24 @@
 <!-- <router-outlet></router-outlet> -->
 <div class="editor_container">
   <div class="header_cont">
-    <h1>
-      Richtext to <br/>Json converter.
-    </h1>
+    <h1>Richtext to <br />Json converter.</h1>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, harum architecto delectus, est odit recusandae magnam quod assumenda eum ut perferendis ad ex blanditiis vitae eveniet aliquid cum culpa maiores?
+      Rich Text to JSON converter streamlines content transformation by
+      parsing rich text inputs, organizing attributes like formatting styles and
+      multimedia, and converting them into structured JSON. This enables
+      seamless storage, manipulation, and integration into software
+      applications. The converter ensures fidelity and empowers developers to
+      handle rich text efficiently.
     </p>
   </div>
   <div class="editor_container_inner">
     <div class="editor_cont">
-      <app-basic-editor (generatedJsonDataFromEditor)="pushData($event)"></app-basic-editor>
+      <app-basic-editor
+        (generatedJsonDataFromEditor)="pushData($event)"
+      ></app-basic-editor>
     </div>
     <div class="json_cont">
       <app-json-viewer [dataPassFromHolder]="dataHolder"></app-json-viewer>
     </div>
-
   </div>
 </div>

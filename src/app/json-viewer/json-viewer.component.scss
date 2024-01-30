@@ -2,11 +2,9 @@
   width: 100%;
   background: var(--code_background);
   padding: 29px;
-  color: white;
   overflow-x: auto;
   height: 100%;
   color: #8086fa;
-  margin-top: 0px;
   margin: 0;
 }
 button {
@@ -20,8 +18,11 @@ button {
   background: #8086fa;
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   span {
-    font-size: 38px;
+    font-size: 32px;
   }
 }
 .material-symbols-outlined {

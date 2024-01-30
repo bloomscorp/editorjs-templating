@@ -17,7 +17,11 @@ button {
   background: #8086fa;
   color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   span {
     font-size: 38px;
   }
 }
+

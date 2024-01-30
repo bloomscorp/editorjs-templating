@@ -1,7 +1,7 @@
 <!-- <p>basic-editor works!</p> -->
 <div #editor> </div>
-<button (click)="save()">
+<button (click)="save()" *ngIf="isGenerateButtonVisible">
   <span class="material-symbols-outlined">
-    save
+    data_object
   </span>
 </button>
