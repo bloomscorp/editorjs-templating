@@ -21,6 +21,7 @@ button {
   align-items: center;
   justify-content: center;
   transition: all .5s;
+  z-index: 2;
   span {
     font-size: 38px;
   }
