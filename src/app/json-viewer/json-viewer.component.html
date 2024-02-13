@@ -1,7 +1,13 @@
-<!-- <p>json-viewer works!</p> -->
-<pre class="json_viewer" id="json">{{dataStringify}}</pre>
-<button (click)="copy()" *ngIf="hideCopy">
-  <span class="material-symbols-outlined">
-    file_copy
-    </span>
+
+<pre class="json_viewer" id="json">
+
+  <div class="validationMessage_container" *ngIf="isValidationMessageVisible">
+    <app-validation [validationMessage]="validationMessage"/>
+  </div>
+
+  {{dataStringify}}
+</pre>
+
+<button (click)="copy()" *ngIf="isCopyButtonVisible">
+  <span class="material-symbols-outlined"> file_copy </span>
 </button>

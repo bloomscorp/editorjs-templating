@@ -6,7 +6,9 @@
   height: 100%;
   color: #8086fa;
   margin: 0;
+  position: relative;
 }
+
 button {
   position: fixed;
   bottom: 20px;
@@ -23,6 +25,7 @@ button {
   justify-content: center;
   transition: all .5s;
   z-index: 2;
+
   span {
     font-size: 32px;
   }
@@ -32,10 +35,26 @@ button:hover {
   background: #444676;
   transition: all .5s;
 }
+
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 200,
-  'GRAD' 0,
-  'opsz' 48
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.validationMessage_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: red;
+  height: 100%;
+  background: rgb(255 255 255 / 20%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  color: #f37c7c;
+  text-align: center;
 }

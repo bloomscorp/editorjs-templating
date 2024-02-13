@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {OutputData} from '@editorjs/editorjs';
+import { PrepareValidationService } from '../validation/service/prepare-validation.service';
 
 @Component({
   selector: 'app-json-viewer',
@@ -7,10 +8,16 @@ import {OutputData} from '@editorjs/editorjs';
   styleUrls: ['./json-viewer.component.scss']
 })
 export class JsonViewerComponent implements OnChanges, OnInit {
+
+  constructor(
+    private _prepareValidation: PrepareValidationService
+  ) { }
   @Input() dataPassFromHolder: OutputData = {} as OutputData;
 
   public dataStringify: string = '';
-  public hideCopy: boolean = false;
+  public isCopyButtonVisible: boolean = false;
+  public isValidationMessageVisible: boolean = false;
+  public validationMessage: string = '';
   private emptyMessage: string = 'Please Provide Data in the Editor to Generate JSON.';
 
   public ngOnInit(): void {
@@ -30,13 +37,25 @@ export class JsonViewerComponent implements OnChanges, OnInit {
     ) {
 
       this.dataPassFromHolder = changes['dataPassFromHolder'].currentValue;
+
       this.dataStringify = JSON.stringify(this.dataPassFromHolder, undefined, 2);
-      this.hideCopy = true;
+
+
+      if(!this._prepareValidation.validateJsonData(this.dataPassFromHolder)){
+
+        this.isCopyButtonVisible = false;
+        this.isValidationMessageVisible = true;
+        this.validationMessage = this._prepareValidation.validationMessage;
+        return
+      }
+
+      this.isCopyButtonVisible = true;
+      this.isValidationMessageVisible = false;
 
     } else {
 
       this.dataStringify = this.emptyMessage;
-      this.hideCopy = false;
+      this.isCopyButtonVisible = false;
     }
   }
 
