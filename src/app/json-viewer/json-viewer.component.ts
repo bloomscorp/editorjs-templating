@@ -59,7 +59,7 @@ export class JsonViewerComponent implements OnChanges, OnInit {
     }
   }
 
-  public copy(): void {
+  public copyJson(): void {
     navigator.clipboard.writeText(this.dataStringify).then();
   }
 

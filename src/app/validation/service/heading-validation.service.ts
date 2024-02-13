@@ -8,7 +8,7 @@ export class HeadingValidationService {
 
   constructor() { }
 
-  public headingValidationErrorMessage: string = ''
+  public headingValidationErrorMessage: string = '';
   public validate(jsonData: OutputData): boolean {
 
     if(!this._isHeadingExist(jsonData)){
@@ -29,9 +29,9 @@ export class HeadingValidationService {
 
   private _isHeadingExist(jsonData: OutputData): boolean {
 
-    let isHeadingExist = false;
+    let isHeadingExist: boolean = false;
 
-    for(let i = 0; i < jsonData.blocks.length; i++){
+    for(let i: number = 0; i < jsonData.blocks.length; i++){
 
       if(jsonData.blocks[i].type === 'header'){
 
@@ -45,9 +45,6 @@ export class HeadingValidationService {
 
   private _isHeadingExistOnTop(jsonData: OutputData): boolean {
 
-    if(jsonData.blocks[0].type === 'header'){
-      return true;
-    }
-    else return false;
+    return jsonData.blocks[0].type === 'header';
   }
 }

@@ -28,9 +28,9 @@ export class ParagraphValidationService {
 
   private _isParagraphExist(jsonData: OutputData): boolean {
 
-    let isHeadingExist = false;
+    let isHeadingExist: boolean = false;
 
-    for(let i = 0; i < jsonData.blocks.length; i++){
+    for(let i: number = 0; i < jsonData.blocks.length; i++){
 
       if(jsonData.blocks[i].type === 'paragraph'){
 
@@ -44,9 +44,6 @@ export class ParagraphValidationService {
 
   private _isParagraphBellowTheHeading(jsonData: OutputData): boolean {
 
-    if(jsonData.blocks[1].type === 'paragraph'){
-      return true;
-    }
-    else return false;
+    return jsonData.blocks[1].type === 'paragraph';
   }
 }
