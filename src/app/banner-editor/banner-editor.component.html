@@ -1,0 +1,21 @@
+<button class="add_banner_button" (click)="openBannerEditor()">
+  <span class="material-symbols-outlined"> add_circle </span>
+  <span> Add Banner Image </span>
+</button>
+
+<div class="banner_editor_form_cont {{isBannerEditorVisible?'banner_editor_active':''}}">
+  <div class="banner_editor_form">
+    <div class="banner_input_cont">
+      <input type="text" placeholder="Banner Image name / URL" [(ngModel)]="bannerImageName"/>
+      <p class="form_error" *ngIf="isBannerNameEmpty">Please enter a banner image name or URL. </p>
+    </div>
+    <div class="banner_input_cont">
+      <label class="checkbox_container">Is the image external ?
+        <input type="checkbox" [(ngModel)]="isTheImageExternal">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <button class="add_image_button_form" (click)="addBannerImage()"> Add image</button>
+  </div>
+  <div class="banner_overlay_close" (click)="closeBannerEditor()"></div>
+</div>

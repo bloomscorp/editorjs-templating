@@ -1,0 +1,185 @@
+.add_banner_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 106%;
+  padding: 10PX;
+  border-radius: 9px;
+  border: none;
+  margin-left: -6%;
+  margin-bottom: 13px;
+  cursor: pointer;
+  border: 2px dashed #8086fa;
+  background: transparent;
+  color: #8086fa;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all .5s;
+}
+
+.add_banner_button:hover {
+  border: 2px solid #8086fa;
+  color: white;
+  background-color: #8086fa;
+}
+
+
+.checkbox_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-top: 25px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox_container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox_container input:checked~.checkmark {
+  background-color: #8086fa;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox_container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox_container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.banner_editor_form_cont {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: red;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(14.5px);
+  -webkit-backdrop-filter: blur(14.5px);
+  left: 0;
+  top: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s;
+
+  &.banner_editor_active {
+    top: 0%;
+  }
+}
+
+.banner_editor_form {
+  width: 90%;
+  background: var(--background);
+  max-width: 550px;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 2;
+
+  .banner_input_cont {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    input {
+      width: 100%;
+      padding: 20px 20px;
+      border-radius: 7px;
+      border: none;
+      font-size: 15px;
+      box-shadow: 1px 1px 14px -3px #00000017;
+      margin-top: 16px;
+      font-family: "Comfortaa", cursive;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+
+  }
+}
+
+.add_image_button_form {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: black;
+  color: white;
+  font-size: 17px;
+  font-family: "Comfortaa", cursive;
+  cursor: pointer;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.banner_overlay_close {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #00000045;
+}
+
+.form_error {
+  color: red;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 999px) and (min-width: 300px) {
+  .add_banner_button {
+    margin-left: -3%;
+  }
+}

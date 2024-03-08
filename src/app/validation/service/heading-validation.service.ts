@@ -45,6 +45,6 @@ export class HeadingValidationService {
 
   private _isHeadingExistOnTop(jsonData: OutputData): boolean {
 
-    return jsonData.blocks[0].type === 'header';
+    return jsonData.blocks[1].type === 'header';
   }
 }

@@ -44,6 +44,6 @@ export class ParagraphValidationService {
 
   private _isParagraphBellowTheHeading(jsonData: OutputData): boolean {
 
-    return jsonData.blocks[1].type === 'paragraph';
+    return jsonData.blocks[2].type === 'paragraph';
   }
 }

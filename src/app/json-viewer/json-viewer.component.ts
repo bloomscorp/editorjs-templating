@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {OutputData} from '@editorjs/editorjs';
+import {BlockToolData, OutputData} from '@editorjs/editorjs';
 import { PrepareValidationService } from '../validation/service/prepare-validation.service';
+import { StoreBannerPayloadService } from '../validation/service/store-banner-payload.service';
 
 @Component({
   selector: 'app-json-viewer',
@@ -10,7 +11,8 @@ import { PrepareValidationService } from '../validation/service/prepare-validati
 export class JsonViewerComponent implements OnChanges, OnInit {
 
   constructor(
-    private _prepareValidation: PrepareValidationService
+    private _prepareValidation: PrepareValidationService,
+    private _storeBanner: StoreBannerPayloadService
   ) { }
   @Input() dataPassFromHolder: OutputData = {} as OutputData;
 
@@ -28,6 +30,7 @@ export class JsonViewerComponent implements OnChanges, OnInit {
       this.dataStringify = this.emptyMessage;
     }
   }
+
 
   public ngOnChanges(changes: SimpleChanges): void {
 
